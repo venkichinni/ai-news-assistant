@@ -1,0 +1,19 @@
+{
+  "sent": [
+    {
+      "link": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
+      "title": "Nvidia closes in on Hugging Face acquisition",
+      "sent_at": "2026-08-28T06:52:25.407779+00:00"
+    },
+    {
+      "link": "https://arstechnica.com/ai/2026/08/anthropics-new-hardware-standard-lets-ai-agents-control-the-physical-world/",
+      "title": "Anthropic's new hardware standard lets AI agents control the physical world",
+      "sent_at": "2026-08-28T06:52:25.407779+00:00"
+    },
+    {
+      "link": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
+      "title": "When agents act on their own, governance has to live in the data layer",
+      "sent_at": "2026-08-28T06:52:25.407779+00:00"
+    }
+  ]
+}
