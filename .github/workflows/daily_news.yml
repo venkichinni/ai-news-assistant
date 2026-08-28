@@ -3,7 +3,7 @@ name: Daily AI News Digest
 on:
   schedule:
     # 07:30 UTC = 1:00 PM IST. Adjust to your preferred delivery time.
-    - cron: "30 7 * * *"
+    - cron: "0 14 * * *"
   workflow_dispatch: {}   # lets you trigger it manually from the Actions tab to test
 
 # Needed so this workflow can commit the updated sent_history.json back to the repo.
