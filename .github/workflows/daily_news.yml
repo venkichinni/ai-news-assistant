@@ -38,10 +38,15 @@ jobs:
       # sent_history.json is the pipeline's "memory" of what's already been
       # sent. GitHub Actions runners are stateless between runs, so we commit
       # the updated file straight back to the repo after each run.
+      # git pull --rebase first, in case the remote moved ahead since this
+      # run started (e.g. someone edited a file on GitHub while this was
+      # running) -- avoids a rejected push turning a successful send into a
+      # red X.
       - name: Persist sent-history memory
         run: |
           git config user.name "ai-news-assistant-bot"
           git config user.email "actions@github.com"
           git add sent_history.json
           git diff --staged --quiet || git commit -m "Update sent history [skip ci]"
+          git pull --rebase origin main
           git push
