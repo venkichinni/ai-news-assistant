@@ -89,6 +89,21 @@
       "link": "https://www.technologyreview.com/2026/08/31/1143180/hugging-face-hack-could-indicate-cultural-issues-at-openai/",
       "title": "Hugging Face hack could indicate cultural issues at OpenAI",
       "sent_at": "2026-08-31T19:23:17.739981+00:00"
+    },
+    {
+      "link": "https://techcrunch.com/2026/09/01/air-raises-50m-to-help-companies-vet-the-skills-and-add-ons-ai-agents-use/",
+      "title": "AIR raises $50M to help companies vet the skills and add-ons AI agents use",
+      "sent_at": "2026-09-01T17:09:09.941433+00:00"
+    },
+    {
+      "link": "https://huggingface.co/blog/webgpu-kernels",
+      "title": "Introducing @huggingface/kernels: 200+ WebGPU Kernels for Local AI",
+      "sent_at": "2026-09-01T17:09:09.941433+00:00"
+    },
+    {
+      "link": "https://techcrunch.com/2026/09/01/sequoia-incubated-empirik-launches-with-21m-to-predict-outages-before-they-happen/",
+      "title": "Sequoia-incubated Empirik launches with $21M to predict outages before they happen",
+      "sent_at": "2026-09-01T17:09:09.941433+00:00"
     }
   ]
 }
