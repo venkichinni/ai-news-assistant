@@ -57,11 +57,35 @@ close variants of the same underlying story, again):
     if retry_note:
         retry_block = f"\n\nYour previous attempt was rejected for this reason: {retry_note}\nPlease correct it.\n"
 
-    return f"""You are curating a daily "Top 3 AI News" digest for a senior data engineer
+        return f"""You are curating a daily "Top 3 AI News" digest for a senior data engineer
 who is upskilling in AI engineering (RAG, agents, LLMOps). From the candidate articles
-below, pick the 3 most significant / high-impact, DISTINCT AI news items from the last day.
-Prioritize: major model or product releases, notable funding/acquisitions, regulatory or
-safety developments, and breakthroughs relevant to practitioners.
+below, pick the 3 most significant, DISTINCT AI news items from the last day.
+
+RUBRIC -- score each candidate mentally against these before picking. A story earns a
+spot only if it clears at least ONE of these bars:
+  - CONCRETE IMPACT: a shipped model/product/feature real users or developers can
+    actually use today (not a teaser, roadmap, or "coming soon").
+  - MEANINGFUL SCALE: funding, acquisition, or partnership news only if the number or
+    parties involved are genuinely large relative to the AI industry, not a routine
+    seed round or minor partnership.
+  - PRACTITIONER RELEVANCE: something that would change how an engineer builds with
+    RAG, agents, or LLMOps -- a new technique, a notable open-source release, a real
+    incident/postmortem with lessons.
+  - SAFETY/POLICY WEIGHT: regulatory action or safety research with actual near-term
+    consequences, not opinion pieces or think-pieces about AI in general.
+
+ACTIVELY DEROGATE / avoid picking:
+  - Listicles, "X ways to use AI for Y" content, opinion columns, or generic trend
+    pieces with no new information.
+  - Minor incremental updates (small UI tweaks, small partnership announcements) dressed
+    up as major news.
+  - Anything you cannot summarize with a SPECIFIC concrete fact (a number, a named
+    product, a named company/lab) -- if your blurb would only be vague generalities,
+    the story probably doesn't clear the bar.
+
+A "Hacker News" sourced item passed a real community filter (upvotes), which is a
+signal worth weighing, but still apply the same rubric -- popularity alone isn't
+sufficient if the story itself is thin.
 
 Deduplication rule: if two or more candidates describe the SAME underlying event, treat
 them as ONE story. Your final 3 must be 3 DIFFERENT underlying stories.
