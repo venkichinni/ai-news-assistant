@@ -11,11 +11,21 @@ morning, on its own.
 1. **Fetches** the latest AI articles from 8 curated RSS feeds — a mix of
    AI-native sources (MIT Technology Review AI, OpenAI News, Anthropic News,
    Hugging Face Blog) and general tech outlets with strong AI desks
-   (VentureBeat, TechCrunch, The Verge, Ars Technica). Free, no API key needed.
+   (VentureBeat, TechCrunch, The Verge, Ars Technica) — plus highly-upvoted
+   Hacker News stories (50+ points) as a community-vetted signal that pure
+   RSS doesn't provide. Free, no API key needed for either.
 2. **Loads memory** of what's already been sent in the last 14 days
    (`sent_history.json`), so you never get the same story twice.
 3. **Agentically ranks** the candidates using Google's Gemini API (free
-   tier, $0/month):
+   tier, $0/month), against an explicit rubric rather than a vague
+   "pick what's significant" instruction:
+   - A story only qualifies if it clears at least one bar: concrete
+     shipped impact, genuinely large-scale funding/M&A, real practitioner
+     relevance (RAG/agents/LLMOps), or safety/policy weight with real
+     near-term consequences.
+   - The prompt explicitly tells the model to *avoid* listicles, opinion
+     pieces, minor incremental updates dressed up as news, and anything it
+     can't back with a specific concrete fact.
    - The model is told what's already been sent and actively avoids
      repeating stories — including different write-ups of the same
      underlying event, not just exact duplicate links.
@@ -201,7 +211,8 @@ after that — no laptop needed. Edit the `cron` line in
 
 ## Customizing
 
-- **Sources**: edit the `FEEDS` list in `fetch_news.py`.
+- **Sources**: edit the `FEEDS` list in `fetch_news.py` for RSS, or
+  `HN_MIN_POINTS` (default 50) to raise/lower the Hacker News upvote bar.
 - **Topic focus**: edit the prompt in `rank_news.py` (`_build_prompt`) —
   e.g. weight toward agentic AI / RAG / LLMOps news specifically.
 - **Memory window**: change `RETENTION_DAYS` in `state.py` (default 14 days).
