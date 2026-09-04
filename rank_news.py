@@ -57,35 +57,36 @@ close variants of the same underlying story, again):
     if retry_note:
         retry_block = f"\n\nYour previous attempt was rejected for this reason: {retry_note}\nPlease correct it.\n"
 
-        return f"""You are curating a daily "Top 3 AI News" digest for a senior data engineer
+    return f"""You are curating a daily "Top 3 AI News" digest for a senior data engineer
 who is upskilling in AI engineering (RAG, agents, LLMOps). From the candidate articles
-below, pick the 3 most significant, DISTINCT AI news items from the last day.
+below, pick and RANK the 3 most significant, DISTINCT AI news items from the last day.
 
-RUBRIC -- score each candidate mentally against these before picking. A story earns a
-spot only if it clears at least ONE of these bars:
-  - CONCRETE IMPACT: a shipped model/product/feature real users or developers can
+RUBRIC -- use this to RANK candidates against each other, from strongest to weakest.
+This is a relative preference, not a pass/fail gate: you must still deliver exactly 3
+picks whenever at least 3 distinct, non-duplicate, not-already-sent candidates exist in
+the list below, even on a quiet news day where nothing is a home run. Prefer stories that:
+  - CONCRETE IMPACT: are a shipped model/product/feature real users or developers can
     actually use today (not a teaser, roadmap, or "coming soon").
-  - MEANINGFUL SCALE: funding, acquisition, or partnership news only if the number or
+  - MEANINGFUL SCALE: funding, acquisition, or partnership news where the number or
     parties involved are genuinely large relative to the AI industry, not a routine
-    seed round or minor partnership.
-  - PRACTITIONER RELEVANCE: something that would change how an engineer builds with
-    RAG, agents, or LLMOps -- a new technique, a notable open-source release, a real
-    incident/postmortem with lessons.
+    seed round.
+  - PRACTITIONER RELEVANCE: would change how an engineer builds with RAG, agents, or
+    LLMOps -- a new technique, a notable open-source release, a real incident/postmortem
+    with lessons.
   - SAFETY/POLICY WEIGHT: regulatory action or safety research with actual near-term
-    consequences, not opinion pieces or think-pieces about AI in general.
+    consequences, not opinion pieces.
+Rank down (but don't refuse to pick if nothing better is available): listicles, generic
+trend pieces, minor incremental updates, and anything you can't back with a specific
+concrete fact. A "Hacker News" sourced item passed a real community filter (upvotes) --
+weigh that, but still rank it against the same criteria.
 
-ACTIVELY DEROGATE / avoid picking:
-  - Listicles, "X ways to use AI for Y" content, opinion columns, or generic trend
-    pieces with no new information.
-  - Minor incremental updates (small UI tweaks, small partnership announcements) dressed
-    up as major news.
-  - Anything you cannot summarize with a SPECIFIC concrete fact (a number, a named
-    product, a named company/lab) -- if your blurb would only be vague generalities,
-    the story probably doesn't clear the bar.
-
-A "Hacker News" sourced item passed a real community filter (upvotes), which is a
-signal worth weighing, but still apply the same rubric -- popularity alone isn't
-sufficient if the story itself is thin.
+WRITING STYLE for each blurb -- make it genuinely engaging to read, not a dry summary:
+  - Open with the concrete hook: the specific number, product name, or claim -- not
+    "In a recent development..." or "This article discusses...".
+  - One sentence on what happened, one on why it actually matters to a practitioner or
+    the industry. Active voice, plain words, no filler ("in today's fast-moving AI
+    landscape", "it remains to be seen", "significant development").
+  - Specific beats vague: "$1B in debt to buy GPUs" beats "raised significant funding".
 
 Deduplication rule: if two or more candidates describe the SAME underlying event, treat
 them as ONE story. Your final 3 must be 3 DIFFERENT underlying stories.
@@ -101,7 +102,7 @@ fences, no preamble):
 {{
   "action": "final",
   "top3": [
-    {{"title": "...", "link": "...", "blurb": "1-2 sentence plain-English summary of why it matters"}},
+    {{"title": "...", "link": "...", "blurb": "punchy 1-2 sentence summary, hook first"}},
     {{"title": "...", "link": "...", "blurb": "..."}},
     {{"title": "...", "link": "...", "blurb": "..."}}
   ]
@@ -180,9 +181,10 @@ def pick_top3(articles, already_sent_links=None):
     extra_context = {}
     retry_note = None
 
-    # Up to 2 rounds: 1 initial pass (which may ask for full text), then a
-    # final pass. Plus up to 1 guardrail-triggered retry after that.
-    for round_num in range(3):
+    # Up to 4 rounds now: 1 initial pass (which may ask for full text), then
+    # up to 3 guardrail-triggered retries -- gives the model more chances to
+    # self-correct on a thin news day instead of skipping too eagerly.
+    for round_num in range(5):
         prompt = _build_prompt(articles, already_sent_links, extra_context, retry_note)
 
         try:
