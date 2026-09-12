@@ -1,51 +1,6 @@
 {
   "sent": [
     {
-      "link": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
-      "title": "Nvidia closes in on Hugging Face acquisition",
-      "sent_at": "2026-08-28T06:52:25.407779+00:00"
-    },
-    {
-      "link": "https://arstechnica.com/ai/2026/08/anthropics-new-hardware-standard-lets-ai-agents-control-the-physical-world/",
-      "title": "Anthropic's new hardware standard lets AI agents control the physical world",
-      "sent_at": "2026-08-28T06:52:25.407779+00:00"
-    },
-    {
-      "link": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
-      "title": "When agents act on their own, governance has to live in the data layer",
-      "sent_at": "2026-08-28T06:52:25.407779+00:00"
-    },
-    {
-      "link": "https://techcrunch.com/2026/08/27/barret-zoph-the-thinking-machines-co-founder-who-defected-to-openai-is-now-of-google/",
-      "title": "Barret Zoph, the Thinking Machines co-founder ousted before joining OpenAI, is now at Google",
-      "sent_at": "2026-08-28T07:14:08.718035+00:00"
-    },
-    {
-      "link": "https://techcrunch.com/2026/08/27/googles-ai-mode-can-now-track-flight-prices-help-book-hotels-and-more/",
-      "title": "Google\u2019s AI Mode can now track flight prices, help book hotels, and more",
-      "sent_at": "2026-08-28T07:14:08.718035+00:00"
-    },
-    {
-      "link": "https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/",
-      "title": "AI\u2019s memory crunch is coming for Android apps",
-      "sent_at": "2026-08-28T07:14:08.718035+00:00"
-    },
-    {
-      "link": "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/",
-      "title": "Anthropic gets its first court win over the Pentagon\u2019s supply chain risk label",
-      "sent_at": "2026-08-28T14:44:14.922778+00:00"
-    },
-    {
-      "link": "https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/",
-      "title": "OpenAI, Anthropic, Google, and 100 other companies call for action to defend against rogue AI",
-      "sent_at": "2026-08-28T14:44:14.922778+00:00"
-    },
-    {
-      "link": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
-      "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
-      "sent_at": "2026-08-28T14:44:14.922778+00:00"
-    },
-    {
       "link": "https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/",
       "title": "Nvidia\u2019s AI advantage is moving beyond the GPU",
       "sent_at": "2026-08-29T16:58:40.078077+00:00"
@@ -224,6 +179,21 @@
       "link": "https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/",
       "title": "Sequoia doubles down on Cymphony as AI agents create new enterprise security risks",
       "sent_at": "2026-09-10T16:54:23.118413+00:00"
+    },
+    {
+      "link": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
+      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+      "sent_at": "2026-09-12T15:59:23.924703+00:00"
+    },
+    {
+      "link": "https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/",
+      "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
+      "sent_at": "2026-09-12T15:59:23.924703+00:00"
+    },
+    {
+      "link": "https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/",
+      "title": "Kimi-maker Moonshot AI targets $2B in annual revenue",
+      "sent_at": "2026-09-12T15:59:23.924703+00:00"
     }
   ]
 }
